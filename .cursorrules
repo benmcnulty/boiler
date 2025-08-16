@@ -1,0 +1,137 @@
+# Cursor Rules for Boiler Template Repository
+
+## Essential Context (Read First)
+This repo is a stack-neutral template following a structured collaboration protocol. Before any changes:
+1. Read `README.md` for canonical Task Charter and Edit-by-Diff templates
+2. Review `AGENTS.md` for coding conventions and repo structure 
+3. Check `CLAUDE.md` for safety rails and architectural guidance
+
+## Leveraging Cursor's Capabilities
+
+### Composer Planning
+Use Cursor Composer for multi-file changes:
+- Start with Task Charter planning (Goal/Context/Scope/Plan from README.md)
+- Preview all file changes before applying
+- Ensure changes align with the minimal, reversible change principle
+- Use Composer to maintain consistency across related files (src/, tests/, docs/)
+
+### Multi-File Context Awareness
+- Leverage Cursor's codebase understanding to maintain naming conventions across files
+- Use tab completion to follow existing patterns in similar files
+- When adding new functionality, reference existing implementations for consistency
+- Maintain architectural patterns discovered through codebase analysis
+
+### Real-Time Suggestions Protocol
+- Accept suggestions that align with established conventions in AGENTS.md
+- Reject suggestions that add unnecessary dependencies or complexity
+- Use inline completions for boilerplate following repo patterns
+- Verify suggestions maintain the stack-neutral principle
+
+## Repository-Specific Workflow
+
+### File Organization (when stack is chosen)
+```
+src/           # Implementation code
+tests/         # Tests mirroring src/ structure  
+docs/          # Diátaxis documentation (tutorials/how-to/reference/explanation)
+scripts/       # Helper automation (idempotent)
+.env.example   # Environment variable names only
+```
+
+### Change Implementation Process
+1. **Plan in Composer**: Create Task Charter with Goal/Context/Scope/Plan
+2. **Preview Changes**: Use Composer's multi-file view to see all impacts
+3. **Implement Minimally**: Start with smallest viable change
+4. **Maintain Tests**: Update tests/ to mirror src/ changes
+5. **Update Docs**: Follow Diátaxis model for any behavior changes
+6. **Verify Safety**: Ensure no secrets, heavy deps, or scope violations
+
+### Commit Strategy
+Use structured commits with Cursor's git integration:
+```
+<type>(<scope>): <concise summary>
+
+Context: <why this change is needed>
+Change: <what specifically changed>
+Impact: <user-visible effects or breaking changes>
+Docs/Tests: <what was updated/added>
+```
+
+## Cursor-Specific Safety Rails
+
+### Dependency Management
+- **Reject suggestions** for unnecessary external dependencies
+- **Flag heavy frameworks** that violate the lightweight template principle
+- **Document rationale** for any new dependencies in PR description
+- **Use .env.example** for configuration, never commit secrets
+
+### Scope Control
+- **Preview all files** in Composer before applying changes
+- **Verify file changes** are within declared Task Charter scope
+- **Reject changes** that modify files outside planned scope
+- **Maintain stack neutrality** - don't hard-wire specific technologies
+
+### Code Quality Automation
+- **Follow discovered conventions** for naming, formatting, and structure
+- **Use language servers** for real-time error detection
+- **Maintain consistency** with existing code patterns
+- **Prefer explicit over implicit** when adding new patterns
+
+## Integration with Existing Agents
+
+### Cross-Agent Compatibility
+- **Maintain README.md** as single source of truth
+- **Follow Task Charter format** for all changes regardless of agent
+- **Use Edit-by-Diff approach** in PR descriptions
+- **Keep changes reversible** and scoped
+
+### Template Evolution
+- **Document new commands** in both README.md and AGENTS.md
+- **Update all agent files** when adding new conventions
+- **Maintain stack neutrality** across all guidance files
+- **Test changes** against the established protocol
+
+## Stack Selection Guidance
+
+When proposing a stack for this template:
+1. **Suggest 1-2 options** with brief trade-offs
+2. **Create minimal implementation** (basic build/test/run commands)
+3. **Update guidance files** with stack-specific conventions
+4. **Maintain template portability** for future stack changes
+
+### Example Stack Integration
+```markdown
+## Proposed: Node.js/TypeScript Stack
+Commands to add:
+- npm run build (build)
+- npm test (run tests) 
+- npm start (dev server)
+- npm run lint (format/lint)
+
+Files to create:
+- package.json, tsconfig.json, .eslintrc.js
+- src/index.ts, tests/index.spec.ts
+```
+
+## Emergency Protocols
+
+### When Cursor Suggests Breaking Changes
+- **Stop and assess** impact on template neutrality
+- **Create Task Charter** for the breaking change
+- **Get explicit approval** before proceeding
+- **Document migration path** in PR description
+
+### When Stack is Ambiguous
+- **Propose specific stack** with minimal implementation
+- **Ask for approval** before adding toolchain dependencies
+- **Update guidance files** to reflect chosen direction
+- **Maintain option** to switch stacks later
+
+## Quality Gates
+Before committing any changes:
+- [ ] All files within declared Task Charter scope
+- [ ] Tests added/updated to mirror src/ changes
+- [ ] Documentation updated for behavior changes
+- [ ] No secrets or heavy dependencies added
+- [ ] Changes maintain stack neutrality where possible
+- [ ] Commit message follows structured format
