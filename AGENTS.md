@@ -1,5 +1,7 @@
 # Repository Guidelines
 
+This file provides concise guidance for any coding agent working in this repository. Agents are capable of operating with just this file and `README.md`, but must respect approval gates below.
+
 This repository is a stack‑neutral starter. Keep changes small, reversible, and aligned with the collaboration protocol in `README.md`.
 
 ## Project Structure & Module Organization
@@ -31,11 +33,52 @@ Document chosen commands in `README.md` and mirror in CI later.
 - Git history uses imperative summaries (e.g., “Add …”). Conventional prefixes are optional (`feat`, `fix`, etc.).
 - Commits: concise subject; optional body with Context/Change/Impact/Docs.
 - PRs: include purpose, scope, acceptance checks, linked issues; add screenshots for UI.
+- Default branch: `main`. Use short‑lived feature branches.
 
 ## Security & Configuration Tips
 - Do not commit secrets. Use environment variables; add `.env.example` with variable names only.
 - Principle of least privilege for scripts and CI. Call out trust‑boundary changes in PRs.
 
+## Approval Gates (must follow)
+- Do not add or migrate toolchains, CI, or dependencies without an approved Task Charter and Edit‑by‑Diff.
+- Do not change public APIs or repository settings without explicit approval.
+- Propose 1–2 options with trade‑offs; implement only after approval.
+
+## Agent Operation
+
+Agents can complete end‑to‑end workflows, while observing approval gates:
+
+### Technology Stack Authority
+When no stack is present, any agent may propose to:
+1. **Analyze project requirements** and constraints
+2. **Select appropriate technology** (see `AGENT-HANDBOOK.md` Stack Decision Matrix)
+3. **Implement minimal setup** with basic commands (after approval)
+4. **Document choice** in README.md with rationale
+
+### Stack Implementation Examples
+See `AGENT-HANDBOOK.md` for minimal file lists, commands, and CI templates.
+
+### Decision Framework
+When requirements are unclear, prefer reversible, lightweight options and document assumptions. Seek quick approval before proceeding.
+
+### Self-Validation Protocol
+Before any commit, verify:
+- [ ] Task Charter scope strictly followed
+- [ ] Tests written and documented (explain how to run)
+- [ ] Build/lint commands work (document exact commands used)
+- [ ] Documentation updated for any behavior changes
+- [ ] No secrets committed (use .env.example for variable names)
+- [ ] Dependencies minimal and justified
+
+### Multi-Agent Coordination (Optional)
+When other agents are present:
+- Reference their guidance files for consistency
+- Use shared templates and terminology
+- Coordinate approach but remain independently capable
+- Any agent can complete any task without dependencies
+
 ## Agent‑Specific Instructions
-- Use edit‑by‑diff, tight file scopes, and the Task Charter from `README.md`.
-- Update docs alongside code and propose minimal, reversible changes first.
+- Use edit‑by‑diff, tight file scopes, and the Task Charter from `README.md`
+- Update docs alongside code and propose minimal, reversible changes first
+- Operate independently for routine tasks; escalate stack/CI/dependency/public‑API changes for approval
+- When proposing a technology, document rationale and basic implementation plan

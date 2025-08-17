@@ -1,10 +1,20 @@
 # Cursor Rules for Boiler Template Repository
 
+## Independent Operation Capability
+Cursor can operate using only this file and README.md for routine tasks. For structural changes (stack/CI/dependencies/public APIs), follow approval gates below.
+
 ## Essential Context (Read First)
 This repo is a stack-neutral template following a structured collaboration protocol. Before any changes:
 1. Read `README.md` for canonical Task Charter and Edit-by-Diff templates
 2. Review `AGENTS.md` for coding conventions and repo structure 
 3. Check `CLAUDE.md` for safety rails and architectural guidance
+4. Default branch is `main`; work on short‑lived feature branches
+5. **Optional**: Reference other agent files for consistency when multiple agents are present
+
+## Approval Gates (must follow)
+- Do not add or migrate toolchains, CI, or dependencies without an approved Task Charter and Edit‑by‑Diff.
+- Do not change public APIs or repository settings without explicit approval.
+- Propose 1–2 options with trade‑offs and await approval before implementation.
 
 ## Leveraging Cursor's Capabilities
 
@@ -77,41 +87,54 @@ Docs/Tests: <what was updated/added>
 - **Maintain consistency** with existing code patterns
 - **Prefer explicit over implicit** when adding new patterns
 
-## Integration with Existing Agents
+## Independent Quality Assurance
+
+### Self-Validation Workflow
+1. **Preview in Composer**: Review all file changes before applying
+2. **Test Implementation**: Verify build/test commands work
+3. **Check Documentation**: Ensure README.md and docs/ are updated
+4. **Validate Scope**: Confirm changes are within Task Charter boundaries
+5. **Security Review**: No secrets, minimal dependencies, safe permissions
+
+### Testing Approach Selection
+When choosing testing frameworks:
+- **Node.js**: Jest (comprehensive) or Vitest (fast)
+- **Python**: pytest (standard) or unittest (built-in)
+- **Rust**: Built-in cargo test
+- **Document choice** and provide basic test examples
+
+### Integration with Existing Agents (Optional)
 
 ### Cross-Agent Compatibility
 - **Maintain README.md** as single source of truth
 - **Follow Task Charter format** for all changes regardless of agent
 - **Use Edit-by-Diff approach** in PR descriptions
 - **Keep changes reversible** and scoped
+- **Optional**: Reference other agent files for consistency
 
 ### Template Evolution
 - **Document new commands** in both README.md and AGENTS.md
-- **Update all agent files** when adding new conventions
+- **Update agent files** when adding new conventions (optional if only Cursor is used)
 - **Maintain stack neutrality** across all guidance files
 - **Test changes** against the established protocol
 
-## Stack Selection Guidance
+## Stack Selection
 
-When proposing a stack for this template:
-1. **Suggest 1-2 options** with brief trade-offs
-2. **Create minimal implementation** (basic build/test/run commands)
-3. **Update guidance files** with stack-specific conventions
-4. **Maintain template portability** for future stack changes
+Cursor may propose and implement technology stacks after approval:
 
-### Example Stack Integration
-```markdown
-## Proposed: Node.js/TypeScript Stack
-Commands to add:
-- npm run build (build)
-- npm test (run tests) 
-- npm start (dev server)
-- npm run lint (format/lint)
+### Stack Decision Process
+1. **Analyze Requirements**: Use Composer to preview project needs
+2. **Propose Technology**: Present 1–2 options with brief trade‑offs
+3. **Implement Setup (after approval)**: Minimal config and folder structure
+4. **Document Commands**: Update README.md and AGENTS.md with build/test/run commands
+5. **Verify Implementation**: Test basic workflow end‑to‑end
 
-Files to create:
-- package.json, tsconfig.json, .eslintrc.js
-- src/index.ts, tests/index.spec.ts
-```
+### Technology Decision Matrix & Templates
+See `AGENT-HANDBOOK.md` for the Stack Decision Matrix, minimal file lists/commands, and CI templates.
+
+### When Project Type Is Unclear
+- Prefer reversible, lightweight defaults and document assumptions
+- Seek quick confirmation before committing to toolchains
 
 ## Emergency Protocols
 

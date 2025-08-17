@@ -152,12 +152,57 @@ Agents should create or update the relevant doc type whenever behavior changes.
 
 ---
 
-## Agent‑Specific Quick Hints (derive detailed files from here)
-Agents can draft these file from the **Collaboration Protocol** and **Task Templates** above.
-- **GitHub Copilot**: respects repository‑level instructions if present at `.github/copilot-instructions.md`. 
-- **Claude Code**: favor small, file‑scoped diffs and explicit risk notes; generate PR summaries using the templates above.
-- **Codex**: create `AGENTS.md` and encode the Collaboration Protocol and Safety Rails verbatim.
-**Task Charter** and **Edit‑by‑Diff** into CLI prompts; keep path scopes tight.
+## Agent Independence & Coordination
+
+### Universal Agent Quick Start
+**Any agent (single or multiple) should:**
+1. Read this README.md as the canonical source
+2. Use Task Charter, Edit-by-Diff, and Test Plan templates from above
+3. Follow the 5-step Collaboration Protocol for every change
+4. Maintain stack neutrality unless a stack is explicitly approved
+
+### Agent-Specific Guidance Files
+Each agent has a dedicated file with complete, self-sufficient guidance:
+- **Claude Code**: `CLAUDE.md` - Full workflow with TodoWrite integration
+- **GitHub Copilot**: `.github/copilot-instructions.md` - Complete GitHub integration
+- **Cursor**: `.cursorrules` - Standalone Composer workflows and context management
+- **Codex/General**: `AGENTS.md` - Universal conventions and safety rails
+- **Gemini**: `GEMINI.md` - CLI-focused dry-run and preview workflows
+- **Windsurf**: `WINDSURF.md` - File scoping and change composition
+
+### Multi-Agent Coordination (Optional)
+When multiple agents are available:
+- Cross-reference other agent files for consistency
+- Use shared terminology and template formats
+- Coordinate but respect approval gates for structural changes (stack/CI/dependencies/public APIs)
+- Agents can complete routine tasks independently; escalate structural decisions
+
+### Technology Stack Decision Framework
+When choosing a stack (agents propose; maintainers approve), follow the process below and use the common reference:
+
+- See `AGENT-HANDBOOK.md` for the Stack Decision Matrix (Node/Python/Rust), minimal files/commands to add, and CI templates.
+- Process summary:
+  1) Propose 1–2 options with trade‑offs and a minimal plan
+  2) Get approval before adding toolchains/CI/dependencies
+  3) Implement minimally, then document commands in README and CI
+  4) Keep choices reversible where possible
+
+### Universal Quality Gates
+Before any commit (any agent can verify):
+- [ ] All files within declared Task Charter scope
+- [ ] Tests added/updated for new/changed behavior
+- [ ] Documentation updated following Diátaxis model
+- [ ] No secrets or unnecessary heavy dependencies
+- [ ] Commit message follows structured format
+- [ ] Changes maintain stack neutrality where possible
+ - [ ] Approval received for any stack/CI/dependency or public‑API change
+
+### Template Adaptation for New Repositories
+When using this as a boilerplate:
+1. Copy all agent files (CLAUDE.md, .cursorrules, etc.)
+2. Update project-specific sections while preserving protocols
+3. Add chosen stack commands to README.md and AGENTS.md
+4. Maintain this README.md as canonical source for all repos
 
 ---
 
