@@ -18,9 +18,18 @@
 ---
 
 ## Project Overview
-Briefly describe *what this project does* and *who it’s for*. Keep stack‑neutral. Example:
+Boiler is a reusable set of instructions and task/review templates for people
+working with coding agents. The committed deliverable is documentation: it has
+no application runtime, package manifest, test suite or configured CI workflow.
+The example Node, Python and Rust commands in the guidance are adaptation
+examples, not commands that can be run against this checkout.
 
-> This repository hosts a service/application/library scaffold. The stack is intentionally unspecified. Fill in your chosen language, framework, and tooling as the project evolves.
+Start with this README, [`AGENTS.md`](AGENTS.md) and
+[`AGENT-HANDBOOK.md`](AGENT-HANDBOOK.md). When adapting the template, replace
+project-specific placeholders, choose tooling for the actual project, and record
+real install/run/test commands. Preserve useful protocols while removing rules
+that do not apply to the chosen environment. No environment variables or secrets
+are needed to read or adapt the current documents.
 
 **Non‑goals**: Avoid hard‑wiring a specific framework, CI/CD, or vendor. Keep guidance portable.
 
@@ -214,7 +223,7 @@ When using this as a boilerplate:
 ---
 
 ## License & Contributions
-Choose a license appropriate for your work (e.g., permissive, copyleft, or private). If you accept contributions, add a short `CONTRIBUTING.md` later that mirrors the **Collaboration Protocol** and **Task Templates** in this README.
+No license file or explicit source license is currently committed. Choose and document a license for an adapted project before distributing it; the examples here do not grant one. If you accept contributions, add a short `CONTRIBUTING.md` later that mirrors the **Collaboration Protocol** and **Task Templates** in this README.
 
 ---
 
